@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tech_trove/menu.dart';
+import 'package:tech_trove/screens/menu.dart';
 
 void main() {
   runApp(const MyApp());

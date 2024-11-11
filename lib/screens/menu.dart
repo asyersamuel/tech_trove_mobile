@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tech_trove/widgets/left_drawer.dart';
+import 'package:tech_trove/widgets/product_card.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
@@ -8,8 +10,8 @@ class MyHomePage extends StatelessWidget {
   final String className = 'PBP A'; // Kelas
 
   final List<ItemHomepage> items = [
-    ItemHomepage("Lihat Daftar Produk", Icons.store, Color.fromARGB(255, 13, 200, 217)),
-    ItemHomepage("Tambah Produk", Icons.add, Color.fromARGB(255, 13, 84, 217)),
+    ItemHomepage("Lihat Daftar Product", Icons.store, Color.fromARGB(255, 13, 200, 217)),
+    ItemHomepage("Tambah Product", Icons.add, Color.fromARGB(255, 13, 84, 217)),
     ItemHomepage("Logout", Icons.logout, Color.fromARGB(255, 83, 49, 233)),
   ];
 
@@ -28,8 +30,10 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
         // Warna latar belakang AppBar diambil dari skema warna tema aplikasi.
+        iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
+      drawer: const LeftDrawer(),
       // Body halaman dengan padding di sekelilingnya.
       body: Container(
         color: Theme.of(context).colorScheme.background,
@@ -129,62 +133,3 @@ class InfoCard extends StatelessWidget {
   }
 }
 
-class ItemCard extends StatelessWidget {
-  // Menampilkan kartu dengan ikon dan nama.
-
-  final ItemHomepage item;
-
-  const ItemCard(this.item, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      // Menentukan warna latar belakang dari tema aplikasi.
-      color: item.color,
-      // Membuat sudut kartu melengkung.
-      borderRadius: BorderRadius.circular(12),
-
-      child: InkWell(
-        // Aksi ketika kartu ditekan.
-        onTap: () {
-          // Menampilkan pesan SnackBar saat kartu ditekan.
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(SnackBar(
-                content: Text("Kamu telah menekan tombol ${item.name}!")));
-        },
-        // Container untuk menyimpan Icon dan Text
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          child: Center(
-            child: Column(
-              // Menyusun ikon dan teks di tengah kartu.
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  item.icon,
-                  color: Colors.white,
-                  size: 30.0,
-                ),
-                const Padding(padding: EdgeInsets.all(3)),
-                Text(
-                  item.name,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ItemHomepage {
-  final String name;
-  final IconData icon;
-  Color color;
-
-  ItemHomepage(this.name, this.icon, this.color);
-}

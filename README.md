@@ -77,3 +77,74 @@ Di Flutter, const dan final digunakan untuk mendefinisikan variabel yang nilainy
 - **Membuat Kelas ItemHomepage sebagai Model Data Tombol**
 Saya membuat kelas ItemHomepage untuk menyimpan atribut utama dari setiap tombol, yaitu nama, ikon, dan warna, agar lebih mudah untuk menambahkan atau mengedit tombol dengan atribut yang jelas tanpa perlu mengubah tampilan tombol secara langsung di MyHomePage.
 </details>
+
+<details>
+  <summary>TUGAS 8</summary>
+
+**Apa kegunaan const di Flutter? Jelaskan apa keuntungan ketika menggunakan const pada kode Flutter. Kapan sebaiknya kita menggunakan const, dan kapan sebaiknya tidak digunakan?**
+
+Di Flutter, const digunakan untuk mendeklarasikan nilai konstan yang tidak akan berubah selama runtime aplikasi. Ini bisa diaplikasikan pada widget atau variabel yang tetap sama sepanjang waktu, membantu Flutter menghindari proses rebuild yang tidak perlu. Sebagai contoh, jika kita membuat sebuah widget statis seperti Text atau Icon yang tidak bergantung pada data dinamis, kita bisa mendeklarasikannya sebagai const. Dengan begitu, Flutter tahu bahwa widget tersebut bisa di-cache dan tidak perlu di-render ulang setiap kali antarmuka aplikasi di-refresh.
+
+Menggunakan const memberikan keuntungan pada performa aplikasi. Dengan const, Flutter dapat menghemat penggunaan memori dan waktu komputasi, karena objek const hanya dibuat satu kali di memori dan dapat digunakan ulang tanpa perlu membuat objek baru setiap kali widget tersebut digunakan. Ini membuat aplikasi lebih efisien, terutama ketika ada banyak widget statis dalam antarmuka.
+
+const sebaiknya digunakan pada widget atau variabel yang tidak akan berubah atau tidak perlu di-update berdasarkan kondisi tertentu, seperti teks atau ikon statis, atau layout yang sifatnya tetap. Dan penggunaan const perlu dihindari pada widget yang bergantung pada data dinamis atau state yang berubah-ubah.
+
+**Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!**
+
+Column dan Row adalah widget dasar di Flutter yang digunakan untuk mengatur tata letak widget anak dalam bentuk vertikal dan horizontal. Column menyusun widget anak dalam satu arah ke bawah (vertikal), sedangkan Row menyusun widget anak secara mendatar (horizontal). Keduanya berguna untuk membuat tata letak sederhana yang fleksibel dan responsif.
+
+Dalam penggunaan Column, widget ini cocok ketika kita ingin menampilkan elemen-elemen secara bertumpuk, seperti membuat daftar vertikal atau formulir. Kita bisa menyesuaikan alignment, padding, dan jarak antar-elemen di dalam Column untuk menghasilkan tampilan yang sesuai dengan kebutuhan. Contoh umum penggunaan Column adalah menampilkan elemen-elemen seperti judul, teks paragraf, dan tombol yang disusun ke bawah.
+
+Row digunakan untuk menyusun elemen-elemen secara sejajar di dalam satu baris. Ini berguna ketika kita ingin membuat tata letak yang memerlukan penempatan elemen-elemen berdampingan, seperti ikon dan teks atau beberapa tombol dalam satu baris. Dengan Row, kita bisa mengatur alignment elemen ke kiri, tengah, atau kanan, serta mengatur spacing antar-widget anak.
+
+Contoh Implementasi Column:
+
+```
+Column(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: [
+    Text("Welcome to Flutter"),
+    Text("This is a Column example"),
+    ElevatedButton(onPressed: () {}, child: Text("Press Me")),
+  ],
+);
+```
+
+Contoh Implementasi Row:
+
+```
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    Icon(Icons.home),
+    Text("Home"),
+    ElevatedButton(onPressed: () {}, child: Text("Settings")),
+  ],
+);
+```
+
+Dalam contoh di atas, Column menyusun elemen dari atas ke bawah, sementara Row menempatkannya dari kiri ke kanan.
+
+**Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!**
+
+Pada halaman form saya, elemen input yang digunakan adalah TextFormField. Elemen ini digunakan untuk menerima input dari pengguna pada beberapa field, yaitu Name, Amount, Price, dan Description. Setiap TextFormField memiliki atribut labelText, hintText, dan border, serta divalidasi untuk memastikan input yang benar. Misalnya, Amount dan Price divalidasi agar hanya menerima angka, sementara Name dan Description divalidasi agar tidak kosong dan memiliki panjang minimum tertentu.
+
+Selain TextFormField, Flutter memiliki beberapa elemen input lainnya yang tidak digunakan pada tugas saya tersebut, seperti Checkbox, Radio, Switch, dan Slider. Checkbox cocok untuk pilihan ya atau tidak, seperti ketika pengguna diminta untuk menyetujui syarat dan ketentuan atau memilih lebih dari satu opsi. Radio digunakan untuk memilih satu dari beberapa opsi yang telah ditentukan, misalnya untuk memilih kategori produk atau status tertentu. Switch sering digunakan untuk pilihan on/off, seperti mengaktifkan atau menonaktifkan fitur tertentu dalam aplikasi, misalnya mengaktifkan notifikasi atau dark mode. Slider digunakan untuk memilih nilai dalam rentang tertentu, seperti menentukan harga atau jumlah suatu item dengan cara yang lebih interaktif dan visual.
+
+**Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?**
+
+Untuk mengatur tema dalam aplikasi Flutter agar konsisten, saya menggunakan fitur ThemeData yang disediakan oleh Flutter. Dengan ThemeData, saya dapat menentukan elemen-elemen visual dasar aplikasi, seperti warna latar belakang, warna teks, dan gaya widget, secara keseluruhan. Penggunaan tema yang terpusat ini membuat perubahan pada tampilan aplikasi dapat dilakukan dengan lebih mudah dan konsisten tanpa perlu mengubah setiap elemen satu per satu.
+
+Pada aplikasi yang saya buat, saya mengimplementasikan tema yang diatur di dalam widget MyApp menggunakan ThemeData. Saya menggunakan ColorScheme untuk mengatur warna utama aplikasi, yaitu warna cyan untuk primary, warna ungu untuk secondary, dan warna abu-abu muda untuk latar belakang aplikasi (background). Dengan pengaturan ini, seluruh aplikasi akan mengikuti skema warna yang telah ditentukan tanpa perlu mengatur warna secara manual pada setiap widget.
+
+Selain itu, saya juga mengaktifkan useMaterial3: true di dalam tema, yang mengaktifkan desain Material You di aplikasi. Ini memberikan tampilan dan nuansa yang lebih modern serta responsif terhadap preferensi pengguna.
+
+**Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?**
+
+Dalam aplikasi Flutter yang memiliki banyak halaman, navigasi dapat dikelola menggunakan widget Navigator yang memungkinkan pengguna berpindah antar halaman dengan cara yang terstruktur. Saya menggunakan Navigator untuk menangani navigasi di aplikasi, baik untuk perpindahan halaman yang bersifat sementara (push) maupun menggantikan halaman yang sedang aktif (pushReplacement), untuk kembali ke halaman sebelumnya (pop). Ini memungkinkan pengguna untuk berinteraksi dengan berbagai bagian aplikasi dengan cara yang terorganisir.
+
+Dalam kasus aplikasi yang saya buat, navigasi antar halaman dikendalikan melalui menu samping atau drawer. Pada kode yang saya buat, drawer terdiri dari beberapa ListTile, yang masing-masing mewakili halaman berbeda di aplikasi. Misalnya, terdapat item yang mengarahkan pengguna ke halaman utama MyHomePage, dan item yang mengarahkan ke halaman form untuk menambahkan produk, yaitu ProductEntryFormPage.
+
+Untuk menangani navigasi, saya menggunakan metode Navigator.push, Navigator.pushReplacement, dan Navigator.pop. Pada item ListTile yang pertama, ketika pengguna memilih "Halaman Utama", saya menggunakan Navigator.pushReplacement untuk mengganti halaman yang aktif saat itu dengan MyHomePage, yang berfungsi menghilangkan halaman sebelumnya dari stack navigasi. Sedangkan untuk item "Tambah Product", saya menggunakan Navigator.push untuk memulai navigasi ke halaman baru (ProductEntryFormPage) tanpa menghapus halaman sebelumnya dari stack, dan Navigator.pop untuk menutup halaman saat pengguna selesai atau ingin kembali ke halaman sebelumnya
+
+</details>
