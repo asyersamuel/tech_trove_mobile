@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tech_trove/screens/list_productentry.dart';
 import 'package:tech_trove/screens/menu.dart';
 import 'package:tech_trove/screens/productentry_form.dart';
 
@@ -51,14 +52,23 @@ class LeftDrawer extends StatelessWidget {
             },
           ),
           ListTile(
+            leading: const Icon(Icons.add_reaction_rounded),
+            title: const Text('Daftar Product'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProductEntryPage()),
+              );
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.add),
             title: const Text('Tambah Product'),
-            // Bagian redirection ke MoodEntryFormPage
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ProductEntryFormPage(),
+                  builder: (context) => const ProductEntryFormPage(),
                 ),
               );
             },
