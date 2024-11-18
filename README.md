@@ -206,6 +206,4 @@ Untuk menampilkan detail item, saya membuat halaman baru di Flutter yang dapat d
 
 
 
-Dengan mengikuti langkah-langkah ini, saya berhasil mengimplementasikan fitur-fitur seperti registrasi akun, login, tampilan daftar item, halaman detail item, dan filter item berdasarkan pengguna yang login dalam aplikasi Flutter yang terintegrasi dengan backend Django. Seluruh proses ini memastikan bahwa data yang ditampilkan di aplikasi selalu relevan dan aman, sesuai dengan status autentikasi pengguna.
-
 </details>
