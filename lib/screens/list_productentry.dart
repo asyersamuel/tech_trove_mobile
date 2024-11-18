@@ -136,7 +136,7 @@ class _ProductEntryPageState extends State<ProductEntryPage> {
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  "Quantity: ${product.fields.quantity}",
+                                  "Amount: ${product.fields.quantity}",
                                   style: const TextStyle(
                                     fontSize: 14,
                                     color: Colors.grey,

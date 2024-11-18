@@ -32,12 +32,12 @@ class ProductDetailPage extends StatelessWidget {
                 // Product Image Placeholder
                 Container(
                   height: 200,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.vertical(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.vertical(
                       top: Radius.circular(16),
                     ),
-                    image: DecorationImage(
-                      image: NetworkImage(
+                    image:  DecorationImage(
+                      image:  NetworkImage(
                         // product.fields.imageUrl ??
                             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ68hnG4RHBLNHnL_IBzWdN3h8jb6Wu35x0g&s",
                       ),
@@ -54,14 +54,14 @@ class ProductDetailPage extends StatelessWidget {
                     children: [
                       Text(
                         product.fields.name,
-                        style: theme.textTheme.headline5?.copyWith(
+                        style: theme.textTheme.headlineSmall?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(height: 8),
                       Text(
                         "Price: \$${product.fields.price}",
-                        style: theme.textTheme.subtitle1?.copyWith(
+                        style: theme.textTheme.titleMedium?.copyWith(
                           color: theme.colorScheme.secondary,
                           fontWeight: FontWeight.bold,
                         ),
@@ -69,19 +69,19 @@ class ProductDetailPage extends StatelessWidget {
                       const SizedBox(height: 8),
                       Text(
                         "Quantity: ${product.fields.quantity}",
-                        style: theme.textTheme.subtitle1,
+                        style: theme.textTheme.titleMedium,
                       ),
                       const SizedBox(height: 16),
                       Text(
                         "Description:",
-                        style: theme.textTheme.subtitle1?.copyWith(
+                        style: theme.textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(height: 8),
                       Text(
                         product.fields.description,
-                        style: theme.textTheme.bodyText2,
+                        style: theme.textTheme.bodyMedium,
                       ),
                     ],
                   ),
