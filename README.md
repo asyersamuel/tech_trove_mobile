@@ -3,6 +3,8 @@
 Asyer Samuel Marpaung
 2306165925
 
+AppCenter - [![Build status](https://build.appcenter.ms/v0.1/apps/4042a7da-0d90-466a-9a6c-9ad965457f9b/branches/main/badge)](https://appcenter.ms)
+
 <details>
   <summary>TUGAS 7</summary>
 
